@@ -1,0 +1,51 @@
+PODS:
+  - mod-ble-swift (0.1.0-beta.1):
+    - mod-ble-swift/XyBleSdk (= 0.1.0-beta.1)
+    - PromisesSwift (~> 1.2.4)
+    - sdk-core-swift (~> 0.1.0-beta.1)
+    - sdk-objectmodel-swift (~> 0.1.0-beta.0)
+    - XyBleSdk
+  - mod-ble-swift/XyBleSdk (0.1.0-beta.1):
+    - PromisesSwift (~> 1.2.4)
+    - sdk-core-swift (~> 0.1.0-beta.1)
+    - sdk-objectmodel-swift (~> 0.1.0-beta.0)
+    - XyBleSdk
+  - PromisesObjC (1.2.6)
+  - PromisesSwift (1.2.6):
+    - PromisesObjC (= 1.2.6)
+  - sdk-core-swift (0.1.2-beta.0):
+    - sdk-objectmodel-swift (~> 0.1.1-beta.0)
+  - sdk-objectmodel-swift (0.1.1-beta.0)
+  - XyBleSdk (0.0.1):
+    - PromisesSwift (~> 1.2.4)
+
+DEPENDENCIES:
+  - mod-ble-swift (from `../mod-ble-swift/`)
+  - sdk-core-swift (~> 0.1.2-beta.0)
+  - sdk-objectmodel-swift (~> 0.1.0-beta.0)
+  - XyBleSdk (from `../sdk-ble-swift/`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - PromisesObjC
+    - PromisesSwift
+    - sdk-core-swift
+    - sdk-objectmodel-swift
+
+EXTERNAL SOURCES:
+  mod-ble-swift:
+    :path: "../mod-ble-swift/"
+  XyBleSdk:
+    :path: "../sdk-ble-swift/"
+
+SPEC CHECKSUMS:
+  mod-ble-swift: 5e83f33b0cda8405c98346221915da677e41a045
+  PromisesObjC: 60326422b6d692b9718a80666e67a9433862aa88
+  PromisesSwift: b3219d5e6545d5d7e8ad8038b4ad139f7ee0b3f0
+  sdk-core-swift: 2abf422222c22dbbe41e52230580dc5c7cb404e3
+  sdk-objectmodel-swift: 7356581ad62bf22700a195ecc266ef0a537ec31e
+  XyBleSdk: 11543b909c52dbd6aa9de943d8ae1d42eca3020a
+
+PODFILE CHECKSUM: bd76a813c77f57b12bce8abcdd42c44b53c50254
+
+COCOAPODS: 1.5.3

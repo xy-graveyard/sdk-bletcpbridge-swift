@@ -1,0 +1,6 @@
+ SQL__HOST=localhost \
+  SQL__PORT=3306 \
+  SQL__USER=root \
+  SQL__PASSWORD=1337 \
+  SQL__DATABASE=xyo \
+  xyo-archivist
