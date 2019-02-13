@@ -1,28 +1,28 @@
 PODS:
-  - mod-ble-swift (0.1.0-beta.1):
-    - mod-ble-swift/XyBleSdk (= 0.1.0-beta.1)
+  - mod-ble-swift (0.1.1-beta.1):
+    - mod-ble-swift/XyBleSdk (= 0.1.1-beta.1)
     - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.0-beta.1)
-    - sdk-objectmodel-swift (~> 0.1.0-beta.0)
+    - sdk-core-swift (~> 0.1.2-beta.2)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.0)
     - XyBleSdk
-  - mod-ble-swift/XyBleSdk (0.1.0-beta.1):
+  - mod-ble-swift/XyBleSdk (0.1.1-beta.1):
     - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.0-beta.1)
-    - sdk-objectmodel-swift (~> 0.1.0-beta.0)
+    - sdk-core-swift (~> 0.1.2-beta.2)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.0)
     - XyBleSdk
   - PromisesObjC (1.2.6)
   - PromisesSwift (1.2.6):
     - PromisesObjC (= 1.2.6)
-  - sdk-core-swift (0.1.2-beta.0):
+  - sdk-core-swift (0.1.2-beta.2):
     - sdk-objectmodel-swift (~> 0.1.1-beta.0)
-  - sdk-objectmodel-swift (0.1.1-beta.0)
+  - sdk-objectmodel-swift (0.1.2-beta.0)
   - XyBleSdk (0.0.1):
     - PromisesSwift (~> 1.2.4)
 
 DEPENDENCIES:
   - mod-ble-swift (from `../mod-ble-swift/`)
-  - sdk-core-swift (~> 0.1.2-beta.0)
-  - sdk-objectmodel-swift (~> 0.1.0-beta.0)
+  - sdk-core-swift (~> 0.1.2-beta.2)
+  - sdk-objectmodel-swift (~> 0.1.2-beta.0)
   - XyBleSdk (from `../sdk-ble-swift/`)
 
 SPEC REPOS:
@@ -39,13 +39,13 @@ EXTERNAL SOURCES:
     :path: "../sdk-ble-swift/"
 
 SPEC CHECKSUMS:
-  mod-ble-swift: 5e83f33b0cda8405c98346221915da677e41a045
+  mod-ble-swift: 27152546a7a2e536458d0dd1c27cdb9cfe553ef6
   PromisesObjC: 60326422b6d692b9718a80666e67a9433862aa88
   PromisesSwift: b3219d5e6545d5d7e8ad8038b4ad139f7ee0b3f0
-  sdk-core-swift: 2abf422222c22dbbe41e52230580dc5c7cb404e3
-  sdk-objectmodel-swift: 7356581ad62bf22700a195ecc266ef0a537ec31e
-  XyBleSdk: 11543b909c52dbd6aa9de943d8ae1d42eca3020a
+  sdk-core-swift: c37533e70bc0901ba7bab4379ae8f1309e48c259
+  sdk-objectmodel-swift: c0ae76ff76772989d60a9ee9e53cd2ef24d8fb22
+  XyBleSdk: 68eef398de0fa956199ba4b8e6a5cc59d7f98287
 
-PODFILE CHECKSUM: bd76a813c77f57b12bce8abcdd42c44b53c50254
+PODFILE CHECKSUM: 33890756db8e6740e7ca723f238772d748ddf726
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0
