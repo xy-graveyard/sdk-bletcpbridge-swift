@@ -14,7 +14,7 @@ import XyBleSdk
 import Promises
 
 public class XyoBleToTcpBridge : XyoRelayNode, XYSmartScanDelegate {
-    private var catalogue = XyoFlagProcedureCatalogue(forOther: 0xff, withOther: 0xff)
+    private var catalogue = XyoFlagProcedureCatalogue(forOther: 0x01, withOther: 0x01)
     private var lastBleDeviceMinor : UInt16?
     private var canCollect : Bool = true
     private var canSend : Bool = true
@@ -29,6 +29,7 @@ public class XyoBleToTcpBridge : XyoRelayNode, XYSmartScanDelegate {
             }
             
             lastBleDeviceMinor = randomDevice.iBeacon?.minor
+            // bridge()
             collect(bleDevice: randomDevice)
         }
     }
@@ -49,7 +50,7 @@ public class XyoBleToTcpBridge : XyoRelayNode, XYSmartScanDelegate {
                         
                         XYCentral.instance.disconnect(from: bleDevice)
                         self.enableBoundWitnesses(enable: true)
-                        self.bridge()
+                        // self.bridge()
                         return
                     } catch is XyoError {
                         self.enableBoundWitnesses(enable: true)
