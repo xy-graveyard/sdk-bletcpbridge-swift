@@ -1,28 +1,28 @@
 PODS:
-  - mod-ble-swift (0.1.1-beta.1):
-    - mod-ble-swift/XyBleSdk (= 0.1.1-beta.1)
-    - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.2-beta.2)
-    - sdk-objectmodel-swift (~> 0.1.2-beta.0)
-    - XyBleSdk
-  - mod-ble-swift/XyBleSdk (0.1.1-beta.1):
-    - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.2-beta.2)
-    - sdk-objectmodel-swift (~> 0.1.2-beta.0)
-    - XyBleSdk
   - PromisesObjC (1.2.6)
   - PromisesSwift (1.2.6):
     - PromisesObjC (= 1.2.6)
-  - sdk-core-swift (0.1.2-beta.2):
+  - sdk-core-swift (0.1.2-beta.6):
     - sdk-objectmodel-swift (~> 0.1.1-beta.0)
-  - sdk-objectmodel-swift (0.1.2-beta.0)
+  - sdk-objectmodel-swift (0.1.2-beta.1)
+  - sdk-xyobleinterface-swift (0.1.1-beta.1):
+    - PromisesSwift (~> 1.2.4)
+    - sdk-core-swift (~> 0.1.2-beta.5)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.1)
+    - sdk-xyobleinterface-swift/XyBleSdk (= 0.1.1-beta.1)
+    - XyBleSdk
+  - sdk-xyobleinterface-swift/XyBleSdk (0.1.1-beta.1):
+    - PromisesSwift (~> 1.2.4)
+    - sdk-core-swift (~> 0.1.2-beta.5)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.1)
+    - XyBleSdk
   - XyBleSdk (0.0.1):
     - PromisesSwift (~> 1.2.4)
 
 DEPENDENCIES:
-  - mod-ble-swift (from `../mod-ble-swift/`)
-  - sdk-core-swift (~> 0.1.2-beta.2)
-  - sdk-objectmodel-swift (~> 0.1.2-beta.0)
+  - sdk-core-swift (~> 0.1.2-beta.6)
+  - sdk-objectmodel-swift (~> 0.1.2-beta.1)
+  - sdk-xyobleinterface-swift (from `../sdk-xyobleinterface-swift/`)
   - XyBleSdk (from `../sdk-ble-swift/`)
 
 SPEC REPOS:
@@ -33,19 +33,19 @@ SPEC REPOS:
     - sdk-objectmodel-swift
 
 EXTERNAL SOURCES:
-  mod-ble-swift:
-    :path: "../mod-ble-swift/"
+  sdk-xyobleinterface-swift:
+    :path: "../sdk-xyobleinterface-swift/"
   XyBleSdk:
     :path: "../sdk-ble-swift/"
 
 SPEC CHECKSUMS:
-  mod-ble-swift: 27152546a7a2e536458d0dd1c27cdb9cfe553ef6
   PromisesObjC: 60326422b6d692b9718a80666e67a9433862aa88
   PromisesSwift: b3219d5e6545d5d7e8ad8038b4ad139f7ee0b3f0
-  sdk-core-swift: c37533e70bc0901ba7bab4379ae8f1309e48c259
-  sdk-objectmodel-swift: c0ae76ff76772989d60a9ee9e53cd2ef24d8fb22
+  sdk-core-swift: d25a98569a480e7060e05310a8f3ffc7a815a886
+  sdk-objectmodel-swift: e65be212adbce07ed86f745a72f3bdf9fb1c373d
+  sdk-xyobleinterface-swift: 7b227aec3d4cc45d26811d6b1667ad8e56e276e7
   XyBleSdk: 68eef398de0fa956199ba4b8e6a5cc59d7f98287
 
-PODFILE CHECKSUM: 33890756db8e6740e7ca723f238772d748ddf726
+PODFILE CHECKSUM: 711bc314edb02257d0bb4abb54b9fa3db0601439
 
 COCOAPODS: 1.6.0

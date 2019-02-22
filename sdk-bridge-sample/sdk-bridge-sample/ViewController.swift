@@ -8,7 +8,7 @@
 
 import UIKit
 import XyBleSdk
-import mod_ble_swift
+import sdk_xyobleinterface_swift
 import sdk_bridge_swift
 import sdk_core_swift
 
@@ -17,8 +17,9 @@ class ViewController: UIViewController, XyoNodeListener {
     private var currentAlert : UIAlertController? = nil
     private static let BRIDGE_LISTENER_KEY = "BRIDGE_LISTENER"
     private static let BRIDGE_SCANNER_KEY = "BRIDGE_VIEW"
-    var bridge : XyoBleToTcpBridge? = nil
-    let scanner = XYSmartScan.instance
+    private var bridge : XyoBleToTcpBridge!
+    private let scanner = XYSmartScan.instance
+    private let server = XyoBluetoothServer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +28,13 @@ class ViewController: UIViewController, XyoNodeListener {
         XyoBluetoothDevice.family.enable(enable: true)
         XyoBluetoothDeviceCreator.enable(enable: true)
         
-        
         setBridge()
-        bridge!.archivists["MAIN"] = XyoTcpPeer(ip: "192.168.86.48", port: 11000)
-        bridge!.addListener(key: ViewController.BRIDGE_LISTENER_KEY, listener: self)
-        bridge!.originState.addSigner(signer: XyoStubSigner())
-        scanner.setDelegate(bridge!, key: ViewController.BRIDGE_SCANNER_KEY)
+        bridge.archivists["MAIN"] = XyoTcpPeer(ip: "192.168.86.48", port: 11000)
+        bridge.addListener(key: ViewController.BRIDGE_LISTENER_KEY, listener: self)
+        bridge.originState.addSigner(signer: XyoStubSigner())
+        scanner.setDelegate(bridge, key: ViewController.BRIDGE_SCANNER_KEY)
         scanner.start(for: [XyoBluetoothDevice.family], mode: .foreground)
+        server.start(listener: bridge)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,13 +43,8 @@ class ViewController: UIViewController, XyoNodeListener {
     
     private func setBridge () {
         if (bridge == nil) {
-            do {
-                let repo = try XyoStrageProviderOriginBlockRepository(storageProvider: XyoInMemoryStorage(), hasher: XyoSha256())
-                self.bridge = XyoBleToTcpBridge(hasher: XyoSha256(), blockRepository: repo)
-            } catch {
-                // this should never hit, unless the schemas are changed, whitch we did not do
-                fatalError()
-            }
+            let repo = XyoStrageProviderOriginBlockRepository(storageProvider: XyoInMemoryStorage(), hasher: XyoSha256())
+            self.bridge = XyoBleToTcpBridge(hasher: XyoSha256(), blockRepository: repo)
         }
 
     }
@@ -66,7 +62,6 @@ class ViewController: UIViewController, XyoNodeListener {
     func onBoundWitnessDiscovered(boundWitness: XyoBoundWitness) {}
     
     func onBoundWitnessEndFailure() {
-
         updateIndex()
     }
     

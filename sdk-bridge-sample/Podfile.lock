@@ -1,49 +1,49 @@
 PODS:
-  - mod-ble-swift (0.1.0-beta.1):
-    - mod-ble-swift/XyBleSdk (= 0.1.0-beta.1)
-    - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.2-beta.0)
-    - sdk-objectmodel-swift (~> 0.1.0-beta.0)
-    - XyBleSdk
-  - mod-ble-swift/XyBleSdk (0.1.0-beta.1):
-    - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.2-beta.0)
-    - sdk-objectmodel-swift (~> 0.1.0-beta.0)
-    - XyBleSdk
   - PromisesObjC (1.2.6)
   - PromisesSwift (1.2.6):
     - PromisesObjC (= 1.2.6)
-  - sdk-bridge-swift (0.1.0-beta.1):
-    - mod-ble-swift
+  - sdk-bridge-swift (0.1.1-beta.1):
     - PromisesSwift (~> 1.2.4)
-    - sdk-bridge-swift/mod-ble-swift (= 0.1.0-beta.1)
-    - sdk-bridge-swift/XyBleSdk (= 0.1.0-beta.1)
-    - sdk-core-swift (~> 0.1.2-beta.0)
-    - sdk-objectmodel-swift (~> 0.1.0-beta.0)
+    - sdk-bridge-swift/sdk-xyobleinterface-swift (= 0.1.1-beta.1)
+    - sdk-bridge-swift/XyBleSdk (= 0.1.1-beta.1)
+    - sdk-core-swift (~> 0.1.2-beta.6)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.1)
+    - sdk-xyobleinterface-swift
     - XyBleSdk
-  - sdk-bridge-swift/mod-ble-swift (0.1.0-beta.1):
-    - mod-ble-swift
+  - sdk-bridge-swift/sdk-xyobleinterface-swift (0.1.1-beta.1):
     - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.2-beta.0)
-    - sdk-objectmodel-swift (~> 0.1.0-beta.0)
+    - sdk-core-swift (~> 0.1.2-beta.6)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.1)
+    - sdk-xyobleinterface-swift
     - XyBleSdk
-  - sdk-bridge-swift/XyBleSdk (0.1.0-beta.1):
-    - mod-ble-swift
+  - sdk-bridge-swift/XyBleSdk (0.1.1-beta.1):
     - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.2-beta.0)
-    - sdk-objectmodel-swift (~> 0.1.0-beta.0)
+    - sdk-core-swift (~> 0.1.2-beta.6)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.1)
+    - sdk-xyobleinterface-swift
     - XyBleSdk
-  - sdk-core-swift (0.1.2-beta.0):
+  - sdk-core-swift (0.1.2-beta.6):
     - sdk-objectmodel-swift (~> 0.1.1-beta.0)
-  - sdk-objectmodel-swift (0.1.1-beta.0)
+  - sdk-objectmodel-swift (0.1.2-beta.1)
+  - sdk-xyobleinterface-swift (0.1.1-beta.1):
+    - PromisesSwift (~> 1.2.4)
+    - sdk-core-swift (~> 0.1.2-beta.5)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.1)
+    - sdk-xyobleinterface-swift/XyBleSdk (= 0.1.1-beta.1)
+    - XyBleSdk
+  - sdk-xyobleinterface-swift/XyBleSdk (0.1.1-beta.1):
+    - PromisesSwift (~> 1.2.4)
+    - sdk-core-swift (~> 0.1.2-beta.5)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.1)
+    - XyBleSdk
   - XyBleSdk (0.0.1):
     - PromisesSwift (~> 1.2.4)
 
 DEPENDENCIES:
-  - mod-ble-swift (from `../../mod-ble-swift/`)
   - sdk-bridge-swift (from `../`)
-  - sdk-core-swift (~> 0.1.2-beta.0)
-  - sdk-objectmodel-swift (~> 0.1.0-beta.0)
+  - sdk-core-swift (~> 0.1.2-beta.6)
+  - sdk-objectmodel-swift (~> 0.1.2-beta.1)
+  - sdk-xyobleinterface-swift (from `../../sdk-xyobleinterface-swift/`)
   - XyBleSdk (from `../../sdk-ble-swift/`)
 
 SPEC REPOS:
@@ -54,22 +54,22 @@ SPEC REPOS:
     - sdk-objectmodel-swift
 
 EXTERNAL SOURCES:
-  mod-ble-swift:
-    :path: "../../mod-ble-swift/"
   sdk-bridge-swift:
     :path: "../"
+  sdk-xyobleinterface-swift:
+    :path: "../../sdk-xyobleinterface-swift/"
   XyBleSdk:
     :path: "../../sdk-ble-swift/"
 
 SPEC CHECKSUMS:
-  mod-ble-swift: 58c80c34a9b77bc06b6c5b3928204bea5f968980
   PromisesObjC: 60326422b6d692b9718a80666e67a9433862aa88
   PromisesSwift: b3219d5e6545d5d7e8ad8038b4ad139f7ee0b3f0
-  sdk-bridge-swift: 660ad60a537e2c51f431795d0fb427ca9c850525
-  sdk-core-swift: 2abf422222c22dbbe41e52230580dc5c7cb404e3
-  sdk-objectmodel-swift: 7356581ad62bf22700a195ecc266ef0a537ec31e
-  XyBleSdk: 11543b909c52dbd6aa9de943d8ae1d42eca3020a
+  sdk-bridge-swift: 20e2c30b9ffa1ea2d99dc984dc0a2be6bda2b5ae
+  sdk-core-swift: d25a98569a480e7060e05310a8f3ffc7a815a886
+  sdk-objectmodel-swift: e65be212adbce07ed86f745a72f3bdf9fb1c373d
+  sdk-xyobleinterface-swift: 7b227aec3d4cc45d26811d6b1667ad8e56e276e7
+  XyBleSdk: 68eef398de0fa956199ba4b8e6a5cc59d7f98287
 
-PODFILE CHECKSUM: eb15ec2e08fd3861efbc34ea2debe5d1e50fcafe
+PODFILE CHECKSUM: 98fe5c82e0ed280fa2818e6da7689f8d5e9d1399
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0

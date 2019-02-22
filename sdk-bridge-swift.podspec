@@ -41,16 +41,16 @@ TODO: Add long description of the pod here.
   s.dependency 'PromisesSwift', '~> 1.2.4'
 
   s.dependency 'sdk-objectmodel-swift',  '~> 0.1.2-beta.1'
-  s.dependency 'sdk-core-swift', '~> 0.1.2-beta.5'
+  s.dependency 'sdk-core-swift', '~> 0.1.2-beta.6'
   s.dependency 'XyBleSdk'
-  s.dependency 'mod-ble-swift'
+  s.dependency 'sdk-xyobleinterface-swift'
 
   s.subspec 'XyBleSdk' do |ss|
       ss.source_files         = '../../sdk-ble-swift/Source/**/*.{swift}'
   end
 
-  s.subspec 'mod-ble-swift' do |ss|
-      ss.source_files         = '../../mod-ble-swift/mod-ble-swift/**/*.{swift}'
+  s.subspec 'sdk-xyobleinterface-swift' do |ss|
+      ss.source_files         = '../../sdk-xyobleinterface-swift/mod-ble-swift/**/*.{swift}'
   end
 
 
