@@ -5,6 +5,6 @@ use_frameworks!
 target 'sdk-bridge-swift' do
     pod 'XyBleSdk', :path => '../sdk-ble-swift/'
     pod 'sdk-xyobleinterface-swift', :path => '../sdk-xyobleinterface-swift/'
-    pod 'sdk-objectmodel-swift', '~> 0.1.2-beta.1'
+    pod 'sdk-objectmodel-swift', '~> 0.1.2-beta.2'
     pod 'sdk-core-swift', '~> 0.1.2-beta.6'
 end

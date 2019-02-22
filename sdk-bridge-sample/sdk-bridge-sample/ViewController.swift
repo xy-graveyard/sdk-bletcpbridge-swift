@@ -14,6 +14,9 @@ import sdk_core_swift
 
 class ViewController: UIViewController, XyoNodeListener {
     @IBOutlet weak var indexlabel : UILabel!
+    @IBOutlet weak var archivistIpBox : UITextField!
+    @IBOutlet weak var archivistPortBox : UITextField!
+    @IBOutlet weak var archivistSubmit : UIButton!
     private var currentAlert : UIAlertController? = nil
     private static let BRIDGE_LISTENER_KEY = "BRIDGE_LISTENER"
     private static let BRIDGE_SCANNER_KEY = "BRIDGE_VIEW"
@@ -29,12 +32,22 @@ class ViewController: UIViewController, XyoNodeListener {
         XyoBluetoothDeviceCreator.enable(enable: true)
         
         setBridge()
-        bridge.archivists["MAIN"] = XyoTcpPeer(ip: "192.168.86.48", port: 11000)
         bridge.addListener(key: ViewController.BRIDGE_LISTENER_KEY, listener: self)
         bridge.originState.addSigner(signer: XyoStubSigner())
         scanner.setDelegate(bridge, key: ViewController.BRIDGE_SCANNER_KEY)
         scanner.start(for: [XyoBluetoothDevice.family], mode: .foreground)
         server.start(listener: bridge)
+        archivistSubmit.addTarget(self, action: #selector(addArchivistClick), for: UIControl.Event.touchUpInside)
+
+    }
+    
+    @objc
+    func addArchivistClick(sender: UIButton) {
+        let ip = archivistIpBox.text ?? "localhost"
+        let port = UInt32(archivistPortBox.text ?? "11000") ?? 11000
+        
+        bridge.archivists["MAIN"] = XyoTcpPeer(ip: ip, port: port)
+        bridge.bridge()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,9 +59,7 @@ class ViewController: UIViewController, XyoNodeListener {
             let repo = XyoStrageProviderOriginBlockRepository(storageProvider: XyoInMemoryStorage(), hasher: XyoSha256())
             self.bridge = XyoBleToTcpBridge(hasher: XyoSha256(), blockRepository: repo)
         }
-
     }
-    
     
     private func updateIndex () {
         DispatchQueue.main.async {
