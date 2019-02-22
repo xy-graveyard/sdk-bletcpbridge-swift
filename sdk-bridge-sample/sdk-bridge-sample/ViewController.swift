@@ -65,7 +65,9 @@ class ViewController: UIViewController, XyoNodeListener {
         DispatchQueue.main.async {
             do {
                 self.indexlabel.text = String(try self.bridge!.originState.getIndex().getValueCopy().getUInt32(offset: 0))
-            } catch {}
+            } catch {
+                
+            }
         }
     }
     
