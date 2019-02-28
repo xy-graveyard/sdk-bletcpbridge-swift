@@ -14,6 +14,8 @@ import XyBleSdk
 import Promises
 
 public class XyoBleToTcpBridge : XyoRelayNode {
+    public var secondsToWaitInBetweenConnections = 10
+    private var lastConnectTime : Date? = nil
     private var catalogue = XyoBridgeProcedureCatalogue()
     private var lastBleDeviceMinor : UInt16?
     private var canCollect : Bool = true
@@ -29,6 +31,14 @@ public class XyoBleToTcpBridge : XyoRelayNode {
                 }
             }
         }
+    }
+    
+    private func isCollectTimeoutDone () -> Bool {
+        guard let time = lastConnectTime else {
+            return true
+        }
+        
+        return time.timeIntervalSinceNow < TimeInterval(exactly: -(secondsToWaitInBetweenConnections))!
     }
     
     public func bridge (tcpDevice : XyoTcpPeer) -> XyoBoundWitness? {
@@ -64,7 +74,7 @@ public class XyoBleToTcpBridge : XyoRelayNode {
 
 extension XyoBleToTcpBridge : XYSmartScanDelegate {
     public func smartScan(detected devices: [XYBluetoothDevice], family: XYDeviceFamily) {
-        if (canCollect) {
+        if (canCollect && isCollectTimeoutDone()) {
             let xyoDevices = getXyoDevices(devices: devices)
             guard let randomDevice = getRandomXyoDevice(devices: xyoDevices) else {
                 return
@@ -128,6 +138,7 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
                         
                         XYCentral.instance.disconnect(from: bleDevice)
                         self.enableBoundWitnesses(enable: true)
+                        self.lastConnectTime = Date()
                         self.bridge()
                         return
                     } catch is XyoError {
