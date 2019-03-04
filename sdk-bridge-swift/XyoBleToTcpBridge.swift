@@ -13,6 +13,7 @@ import sdk_objectmodel_swift
 import XyBleSdk
 import Promises
 
+/// A bridge from bluetooth pipes to tcp, this is the primary bridge in the XYO network.
 public class XyoBleToTcpBridge : XyoRelayNode {
     public var secondsToWaitInBetweenConnections = 10
     private var lastConnectTime : Date? = nil
@@ -23,13 +24,19 @@ public class XyoBleToTcpBridge : XyoRelayNode {
     public var archivists = [String : XyoTcpPeer]()
     
     
-    public func bridge () {
+    public func bridge (index: Int = 0) {
+        if ((archivists.count - 1) >= index) {
+            return
+        }
+        
         DispatchQueue.global().async {
-            for (_, archivist) in self.archivists {
-                if (self.bridge(tcpDevice: archivist) != nil) {
-                    break
+            let archivist = Array(self.archivists)[index].value
+            
+            self.bridge(tcpDevice: archivist, completion: { (boundWitness, error) in
+                if (error != nil) {
+                    self.bridge(index: (index + 1))
                 }
-            }
+            })
         }
     }
     
@@ -41,36 +48,25 @@ public class XyoBleToTcpBridge : XyoRelayNode {
         return time.timeIntervalSinceNow < TimeInterval(exactly: -(secondsToWaitInBetweenConnections))!
     }
     
-    public func bridge (tcpDevice : XyoTcpPeer) -> XyoBoundWitness? {
+    public func bridge (tcpDevice : XyoTcpPeer, completion: @escaping (_: XyoBoundWitness?, _: XyoError?)->()) {
         if (canSend) {
             let socket = XyoTcpSocket.create(peer: tcpDevice)
             let pipe = XyoTcpSocketPipe(socket: socket, initiationData: nil)
         
-            do {
-                let boundWitness = try self.doNeogeoationThenBoundWitness(handler: XyoNetworkHandler(pipe: pipe),
-                                                           procedureCatalogue: self.catalogue)
-                self.enableBoundWitnesses(enable: true)
+        
+            self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue) { (boundWitness, error) in
+                 self.enableBoundWitnesses(enable: true)
                 
-                return boundWitness
-            } catch is XyoError {
-                self.enableBoundWitnesses(enable: true)
-            } catch is XyoObjectError {
-                self.enableBoundWitnesses(enable: true)
-            } catch {
-                self.enableBoundWitnesses(enable: true)
+                completion(boundWitness, error)
             }
         }
-        
-        return nil
     }
-    
     
     public func enableBoundWitnesses (enable : Bool) {
         canSend = enable
         canCollect = enable
     }
 }
-
 
 extension XyoBleToTcpBridge : XYSmartScanDelegate {
     public func smartScan(detected devices: [XYBluetoothDevice], family: XYDeviceFamily) {
@@ -126,29 +122,19 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
     public func collect (bleDevice : XyoBluetoothDevice) {
         if (canCollect) {
             self.enableBoundWitnesses(enable: false)
-            DispatchQueue.global().async {
-                bleDevice.connection {
-                    guard let pipe = bleDevice.tryCreatePipe() else {
-                        return
-                    }
-                    
-                    do {
-                        _ = try self.doNeogeoationThenBoundWitness(handler: XyoNetworkHandler(pipe: pipe),
-                                                                   procedureCatalogue: self.catalogue)
-                        
-                        XYCentral.instance.disconnect(from: bleDevice)
-                        self.enableBoundWitnesses(enable: true)
-                        self.lastConnectTime = Date()
-                        self.bridge()
-                        return
-                    } catch is XyoError {
-                        self.enableBoundWitnesses(enable: true)
-                    } catch is XyoObjectError {
-                        self.enableBoundWitnesses(enable: true)
-                    }
-                    
-                    XYCentral.instance.disconnect(from: bleDevice)
+            
+            bleDevice.connection {
+                guard let pipe = bleDevice.tryCreatePipe() else {
+                    return
                 }
+
+                self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue, completion: { (boundWitness, error) in
+                    XYCentral.instance.disconnect(from: bleDevice)
+                    self.lastConnectTime = Date()
+                    XYCentral.instance.disconnect(from: bleDevice)
+                    self.enableBoundWitnesses(enable: true)
+                    self.bridge()
+                })
             }
         }
     }
@@ -157,23 +143,13 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
 
 extension XyoBleToTcpBridge : XyoPipeCharacteristicLisitner {
     public func onPipe(pipe: XyoNetworkPipe) {
+        self.enableBoundWitnesses(enable: false)
+        
         DispatchQueue.global().async {
-            self.enableBoundWitnesses(enable: false)
-            
-            do {
-                _ = try self.doNeogeoationThenBoundWitness(handler: XyoNetworkHandler(pipe: pipe),
-                                                           procedureCatalogue: self.catalogue)
-                
+            self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue, completion: { (boundWitness, error) in
                 self.enableBoundWitnesses(enable: true)
                 self.bridge()
-                return
-            } catch is XyoError {
-                self.enableBoundWitnesses(enable: true)
-            } catch is XyoObjectError {
-                self.enableBoundWitnesses(enable: true)
-            } catch {
-                 self.enableBoundWitnesses(enable: true)
-            }
+            })
         }
     }
 }

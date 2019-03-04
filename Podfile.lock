@@ -2,25 +2,27 @@ PODS:
   - PromisesObjC (1.2.6)
   - PromisesSwift (1.2.6):
     - PromisesObjC (= 1.2.6)
-  - sdk-core-swift (0.1.2-beta.7):
+  - sdk-core-swift (0.1.4-beta.2):
     - sdk-objectmodel-swift (~> 0.1.1-beta.2)
+    - secp256k1.swift
   - sdk-objectmodel-swift (0.1.2-beta.2)
-  - sdk-xyobleinterface-swift (0.1.1-beta.1):
+  - sdk-xyobleinterface-swift (0.1.2-beta.1):
     - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.2-beta.5)
-    - sdk-objectmodel-swift (~> 0.1.2-beta.1)
-    - sdk-xyobleinterface-swift/XyBleSdk (= 0.1.1-beta.1)
+    - sdk-core-swift (~> 0.1.4-beta.1)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.2)
+    - sdk-xyobleinterface-swift/XyBleSdk (= 0.1.2-beta.1)
     - XyBleSdk
-  - sdk-xyobleinterface-swift/XyBleSdk (0.1.1-beta.1):
+  - sdk-xyobleinterface-swift/XyBleSdk (0.1.2-beta.1):
     - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.2-beta.5)
-    - sdk-objectmodel-swift (~> 0.1.2-beta.1)
+    - sdk-core-swift (~> 0.1.4-beta.1)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.2)
     - XyBleSdk
+  - secp256k1.swift (0.1.4)
   - XyBleSdk (0.0.1):
     - PromisesSwift (~> 1.2.4)
 
 DEPENDENCIES:
-  - sdk-core-swift (~> 0.1.2-beta.7)
+  - sdk-core-swift (~> 0.1.4-beta.1)
   - sdk-objectmodel-swift (~> 0.1.2-beta.2)
   - sdk-xyobleinterface-swift (from `../sdk-xyobleinterface-swift/`)
   - XyBleSdk (from `../sdk-ble-swift/`)
@@ -31,6 +33,7 @@ SPEC REPOS:
     - PromisesSwift
     - sdk-core-swift
     - sdk-objectmodel-swift
+    - secp256k1.swift
 
 EXTERNAL SOURCES:
   sdk-xyobleinterface-swift:
@@ -41,11 +44,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   PromisesObjC: 60326422b6d692b9718a80666e67a9433862aa88
   PromisesSwift: b3219d5e6545d5d7e8ad8038b4ad139f7ee0b3f0
-  sdk-core-swift: 297ab1fbce1160577bba5eedde7ad0ba5ffd85a9
+  sdk-core-swift: 34e59fcc29d06765c4331946989ee395563cf4ef
   sdk-objectmodel-swift: 509fbc7b1990ed6cd7c0025dc634e5f09c237e98
-  sdk-xyobleinterface-swift: 7b227aec3d4cc45d26811d6b1667ad8e56e276e7
+  sdk-xyobleinterface-swift: 17cc463a7f25760d4d37614eceb6a1094b1c0b4d
+  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   XyBleSdk: 68eef398de0fa956199ba4b8e6a5cc59d7f98287
 
-PODFILE CHECKSUM: b189436ba889b88d6abccd4e09f5d48ad7c92875
+PODFILE CHECKSUM: 7a641453c611d6adcdbe6526e7cdee92cb7aef5a
 
 COCOAPODS: 1.6.0
