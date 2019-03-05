@@ -2,40 +2,40 @@ PODS:
   - PromisesObjC (1.2.7)
   - PromisesSwift (1.2.7):
     - PromisesObjC (= 1.2.7)
-  - sdk-bridge-swift (0.1.1-beta.1):
+  - sdk-bridge-swift (0.1.1-beta.2):
     - PromisesSwift (~> 1.2.4)
-    - sdk-bridge-swift/sdk-xyobleinterface-swift (= 0.1.1-beta.1)
-    - sdk-bridge-swift/XyBleSdk (= 0.1.1-beta.1)
-    - sdk-core-swift (~> 0.1.2-beta.7)
-    - sdk-objectmodel-swift (~> 0.1.2-beta.2)
+    - sdk-bridge-swift/sdk-xyobleinterface-swift (= 0.1.1-beta.2)
+    - sdk-bridge-swift/XyBleSdk (= 0.1.1-beta.2)
+    - sdk-core-swift (~> 0.1.4-beta.6)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.3)
     - sdk-xyobleinterface-swift
     - XyBleSdk
-  - sdk-bridge-swift/sdk-xyobleinterface-swift (0.1.1-beta.1):
+  - sdk-bridge-swift/sdk-xyobleinterface-swift (0.1.1-beta.2):
     - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.2-beta.7)
-    - sdk-objectmodel-swift (~> 0.1.2-beta.2)
+    - sdk-core-swift (~> 0.1.4-beta.6)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.3)
     - sdk-xyobleinterface-swift
     - XyBleSdk
-  - sdk-bridge-swift/XyBleSdk (0.1.1-beta.1):
+  - sdk-bridge-swift/XyBleSdk (0.1.1-beta.2):
     - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.2-beta.7)
-    - sdk-objectmodel-swift (~> 0.1.2-beta.2)
+    - sdk-core-swift (~> 0.1.4-beta.6)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.3)
     - sdk-xyobleinterface-swift
     - XyBleSdk
-  - sdk-core-swift (0.1.4-beta.2):
-    - sdk-objectmodel-swift (~> 0.1.1-beta.2)
+  - sdk-core-swift (0.1.4-beta.7):
+    - sdk-objectmodel-swift (~> 0.1.2-beta.3)
     - secp256k1.swift
   - sdk-objectmodel-swift (0.1.2-beta.3)
   - sdk-xyobleinterface-swift (0.1.2-beta.1):
     - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.4-beta.1)
-    - sdk-objectmodel-swift (~> 0.1.2-beta.2)
+    - sdk-core-swift (~> 0.1.4-beta.6)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.3)
     - sdk-xyobleinterface-swift/XyBleSdk (= 0.1.2-beta.1)
     - XyBleSdk
   - sdk-xyobleinterface-swift/XyBleSdk (0.1.2-beta.1):
     - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.4-beta.1)
-    - sdk-objectmodel-swift (~> 0.1.2-beta.2)
+    - sdk-core-swift (~> 0.1.4-beta.6)
+    - sdk-objectmodel-swift (~> 0.1.2-beta.3)
     - XyBleSdk
   - secp256k1.swift (0.1.4)
   - XyBleSdk (0.0.1):
@@ -43,8 +43,8 @@ PODS:
 
 DEPENDENCIES:
   - sdk-bridge-swift (from `../`)
-  - sdk-core-swift (~> 0.1.4-beta.0)
-  - sdk-objectmodel-swift (~> 0.1.2-beta.2)
+  - sdk-core-swift (~> 0.1.4-beta.7)
+  - sdk-objectmodel-swift (~> 0.1.2-beta.3)
   - sdk-xyobleinterface-swift (from `../../sdk-xyobleinterface-swift/`)
   - XyBleSdk (from `../../sdk-ble-swift/`)
 
@@ -67,13 +67,13 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   PromisesObjC: 7b28ddd1e78cce8f80f1ada927d2217663a9c672
   PromisesSwift: b27f410f9ea693753cfd4cfd8ac1c60a471f137b
-  sdk-bridge-swift: 60cddf74e333341981fb070d7f9b21fe9976ed9b
-  sdk-core-swift: 34e59fcc29d06765c4331946989ee395563cf4ef
+  sdk-bridge-swift: 94e70aace48b5e49a8c0b4a8396bcf98736b1711
+  sdk-core-swift: 750d4023287244a08c254ba73363a1e55b48a19e
   sdk-objectmodel-swift: 93b02d39d406c39e45ad15a2d5b488c9f8e16b58
-  sdk-xyobleinterface-swift: 17cc463a7f25760d4d37614eceb6a1094b1c0b4d
+  sdk-xyobleinterface-swift: f9136e2481654b801164d8597410059529147432
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   XyBleSdk: 68eef398de0fa956199ba4b8e6a5cc59d7f98287
 
-PODFILE CHECKSUM: 75599955fd20de22b154edc52bea8bc3ec13aecb
+PODFILE CHECKSUM: 8f4103e25ce393ca090f1da1ff789051636bfb18
 
 COCOAPODS: 1.6.0

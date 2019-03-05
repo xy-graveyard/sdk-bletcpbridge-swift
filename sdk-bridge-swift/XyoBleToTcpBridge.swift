@@ -25,7 +25,7 @@ public class XyoBleToTcpBridge : XyoRelayNode {
     
     
     public func bridge (index: Int = 0) {
-        if ((archivists.count - 1) >= index) {
+        if ((archivists.count - 1) < index) {
             return
         }
         
@@ -53,9 +53,10 @@ public class XyoBleToTcpBridge : XyoRelayNode {
             let socket = XyoTcpSocket.create(peer: tcpDevice)
             let pipe = XyoTcpSocketPipe(socket: socket, initiationData: nil)
         
-        
             self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue) { (boundWitness, error) in
-                 self.enableBoundWitnesses(enable: true)
+                
+                pipe.close()
+                self.enableBoundWitnesses(enable: true)
                 
                 completion(boundWitness, error)
             }
@@ -148,6 +149,7 @@ extension XyoBleToTcpBridge : XyoPipeCharacteristicLisitner {
         DispatchQueue.global().async {
             self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue, completion: { (boundWitness, error) in
                 self.enableBoundWitnesses(enable: true)
+                pipe.close()
                 self.bridge()
             })
         }
