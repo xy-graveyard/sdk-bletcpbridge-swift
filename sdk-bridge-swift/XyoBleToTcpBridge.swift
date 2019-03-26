@@ -21,6 +21,7 @@ public class XyoBleToTcpBridge : XyoRelayNode {
     private var lastBleDeviceMinor : UInt16?
     private var canCollect : Bool = true
     private var canSend : Bool = true
+    public var bridgeInterval: UInt32 = 4
     public var archivists = [String : XyoTcpPeer]()
     
     
@@ -134,12 +135,24 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
                     self.lastConnectTime = Date()
                     XYCentral.instance.disconnect(from: bleDevice)
                     self.enableBoundWitnesses(enable: true)
-                    self.bridge()
+                    
+                    self.bridgeIfNeccacry()
                 })
             }
         }
     }
+    
+    private func bridgeIfNeccacry () {
+        do {
+            if (try originState.getIndex().getValueCopy().getUInt32(offset: 0) % self.bridgeInterval == 0) {
+                self.bridge()
+            }
+        } catch {
+            // do nothing if there is an error in the state
+        }
+    }
 }
+
 
 
 extension XyoBleToTcpBridge : XyoPipeCharacteristicLisitner {
@@ -150,7 +163,8 @@ extension XyoBleToTcpBridge : XyoPipeCharacteristicLisitner {
             self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue, completion: { (boundWitness, error) in
                 self.enableBoundWitnesses(enable: true)
                 pipe.close()
-                self.bridge()
+                
+                self.bridgeIfNeccacry()
             })
         }
     }
