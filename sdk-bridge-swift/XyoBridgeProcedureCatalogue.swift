@@ -21,12 +21,9 @@ public class XyoBridgeProcedureCatalogue : XyoFlagProcedureCatalogue {
     }
     
     override public func choose(catalogue: [UInt8]) -> [UInt8] {
-        if (catalogue.count == 0) {
+        guard let intrestedFlags = catalogue.last else {
             return []
         }
-        
-        let intrestedFlags = catalogue[0]
-        
         
         if (intrestedFlags & UInt8(XyoProcedureCatalogueFlags.TAKE_ORIGIN_CHAIN) != 0 && canDo(bytes: [UInt8(XyoProcedureCatalogueFlags.TAKE_ORIGIN_CHAIN)])) {
             return [UInt8(XyoProcedureCatalogueFlags.GIVE_ORIGIN_CHAIN)]
