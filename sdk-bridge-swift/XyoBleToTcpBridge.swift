@@ -157,15 +157,19 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
 
 extension XyoBleToTcpBridge : XyoPipeCharacteristicLisitner {
     public func onPipe(pipe: XyoNetworkPipe) {
-        self.enableBoundWitnesses(enable: false)
-        
-        DispatchQueue.global().async {
-            self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue, completion: { (boundWitness, error) in
-                self.enableBoundWitnesses(enable: true)
-                pipe.close()
-                
-                self.bridgeIfNeccacry()
-            })
+        if (canCollect) {
+            self.enableBoundWitnesses(enable: false)
+            
+            DispatchQueue.global().async {
+                self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue, completion: { (boundWitness, error) in
+                    self.enableBoundWitnesses(enable: true)
+                    pipe.close()
+                    
+                    self.bridgeIfNeccacry()
+                })
+            }
+        } else {
+            pipe.close()
         }
     }
 }
