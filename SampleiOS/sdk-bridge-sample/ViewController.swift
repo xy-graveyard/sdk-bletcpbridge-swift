@@ -9,7 +9,7 @@
 import UIKit
 import XyBleSdk
 import sdk_xyobleinterface_swift
-import sdk_bridge_swift
+import sdk_bletcpbridge_swift
 import sdk_core_swift
 
 class ViewController: UIViewController, XyoNodeListener {

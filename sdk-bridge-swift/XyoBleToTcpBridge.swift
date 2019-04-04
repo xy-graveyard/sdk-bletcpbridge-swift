@@ -137,14 +137,20 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
                     return
                 }
                 
+                let awaiter = Promise<Any?>.pending()
+                
                 self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue, completion: { (boundWitness, error) in
-                    XYCentral.instance.disconnect(from: bleDevice)
+                    awaiter.fulfill(nil)
                     self.lastConnectTime = Date()
-                    XYCentral.instance.disconnect(from: bleDevice)
+                    
                     self.enableBoundWitnessesSoft(enable: true)
                     
                     self.bridgeIfNeccacry()
                 })
+                
+                _ = try await(awaiter)
+                }.then {
+                    XYCentral.instance.disconnect(from: bleDevice)
             }
         }
     }
