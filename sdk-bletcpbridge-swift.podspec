@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'sdk-bletcpbridge-swift'
-  s.version          = '0.1.1-beta.3'
+  s.version          = '0.1.1-beta.4'
   s.summary          = 'A short description of sdk-bletcpbridge-swift'
 
 
