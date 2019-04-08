@@ -144,13 +144,12 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
                     awaiter.fulfill(nil)
                     self.lastConnectTime = Date()
                     
-                    self.enableBoundWitnessesSoft(enable: true)
-                    
                     self.bridgeIfNeccacry()
                 })
                 
                 _ = try await(awaiter)
-                }.then {
+                }.always {
+                    self.enableBoundWitnessesSoft(enable: true)
                     XYCentral.instance.disconnect(from: bleDevice)
             }
         }
