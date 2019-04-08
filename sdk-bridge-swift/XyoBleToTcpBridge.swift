@@ -18,6 +18,7 @@ public class XyoBleToTcpBridge : XyoRelayNode {
     public var secondsToWaitInBetweenConnections = 0
     private var lastConnectTime : Date? = nil
     private var catalogue = XyoBridgeProcedureCatalogue()
+    private var catalogueStrict = XyoBridgeProcedureStrictCatalogue()
     private var lastBleDeviceMinor : UInt16?
     private var canCollect : Bool = true
     private var canSend : Bool = true
@@ -55,7 +56,7 @@ public class XyoBleToTcpBridge : XyoRelayNode {
             let socket = XyoTcpSocket.create(peer: tcpDevice)
             let pipe = XyoTcpSocketPipe(socket: socket, initiationData: nil)
             
-            self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue) { (boundWitness, error) in
+            self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogueStrict) { (boundWitness, error) in
                 
                 pipe.close()
                 self.enableBoundWitnessesSoft(enable: true)

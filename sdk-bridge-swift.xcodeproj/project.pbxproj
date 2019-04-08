@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C6F37C2221F6AE2001473B2 /* XyoBridgeProcedureCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F37C1221F6AE2001473B2 /* XyoBridgeProcedureCatalogue.swift */; };
+		8C85F6D0225AE86100EA04A1 /* XyoBridgeProcedureStrictCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85F6CF225AE86100EA04A1 /* XyoBridgeProcedureStrictCatalogue.swift */; };
 		8C924E07221376DD007FF765 /* sdk_bridge_swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C924E05221376DD007FF765 /* sdk_bridge_swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8C924E0E221377A7007FF765 /* XyoBleToTcpBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C924E0D221377A7007FF765 /* XyoBleToTcpBridge.swift */; };
 		F6AFD235092D5D2DBF917E69 /* Pods_sdk_bridge_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F299458BE7E21FBB02F5D9D2 /* Pods_sdk_bridge_swift.framework */; };
@@ -16,6 +17,7 @@
 /* Begin PBXFileReference section */
 		303AC5206BB489C5CD3D0FB7 /* Pods-sdk-bridge-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk-bridge-swift.debug.xcconfig"; path = "Target Support Files/Pods-sdk-bridge-swift/Pods-sdk-bridge-swift.debug.xcconfig"; sourceTree = "<group>"; };
 		8C6F37C1221F6AE2001473B2 /* XyoBridgeProcedureCatalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XyoBridgeProcedureCatalogue.swift; sourceTree = "<group>"; };
+		8C85F6CF225AE86100EA04A1 /* XyoBridgeProcedureStrictCatalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XyoBridgeProcedureStrictCatalogue.swift; sourceTree = "<group>"; };
 		8C924E02221376DD007FF765 /* sdk_bridge_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sdk_bridge_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C924E05221376DD007FF765 /* sdk_bridge_swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sdk_bridge_swift.h; sourceTree = "<group>"; };
 		8C924E06221376DD007FF765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				8C924E06221376DD007FF765 /* Info.plist */,
 				8C924E0D221377A7007FF765 /* XyoBleToTcpBridge.swift */,
 				8C6F37C1221F6AE2001473B2 /* XyoBridgeProcedureCatalogue.swift */,
+				8C85F6CF225AE86100EA04A1 /* XyoBridgeProcedureStrictCatalogue.swift */,
 			);
 			path = "sdk-bridge-swift";
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C85F6D0225AE86100EA04A1 /* XyoBridgeProcedureStrictCatalogue.swift in Sources */,
 				8C924E0E221377A7007FF765 /* XyoBleToTcpBridge.swift in Sources */,
 				8C6F37C2221F6AE2001473B2 /* XyoBridgeProcedureCatalogue.swift in Sources */,
 			);
