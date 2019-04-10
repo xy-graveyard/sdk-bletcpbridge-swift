@@ -23,6 +23,7 @@ public class XyoBleToTcpBridge : XyoRelayNode {
     private var canCollect : Bool = true
     private var canSend : Bool = true
     private var canServe : Bool = true
+    private var haulted : Bool = false
     public var bridgeInterval: UInt32 = 4
     public var archivists = [String : XyoTcpPeer]()
     
@@ -75,12 +76,13 @@ public class XyoBleToTcpBridge : XyoRelayNode {
         canSend = enable
         canCollect = enable
         canServe = enable
+        haulted = !enable
     }
 }
 
 extension XyoBleToTcpBridge : XYSmartScanDelegate {
     public func smartScan(detected devices: [XYBluetoothDevice], family: XYDeviceFamily) {
-        if (canCollect && isCollectTimeoutDone()) {
+        if (canCollect && isCollectTimeoutDone() && !haulted) {
             let xyoDevices = getXyoDevices(devices: devices)
             guard let randomDevice = getRandomXyoDevice(devices: xyoDevices) else {
                 return
