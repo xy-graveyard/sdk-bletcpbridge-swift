@@ -143,6 +143,7 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
                 let awaiter = Promise<Any?>.pending()
                 
                 self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue, completion: { (boundWitness, error) in
+                    self.enableBoundWitnessesSoft(enable: true)
                     awaiter.fulfill(nil)
                     self.lastConnectTime = Date()
                     
