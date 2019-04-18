@@ -24,6 +24,8 @@ public class XyoBleToTcpBridge : XyoRelayNode {
     private var canSend : Bool = true
     private var canServe : Bool = true
     private var haulted : Bool = false
+    public var bleBridgeLimit: Int = 10
+    public var tcpBridgeLimit: Int = 150
     public var bridgeInterval: UInt32 = 4
     public var archivists = [String : XyoTcpPeer]()
     
@@ -54,11 +56,12 @@ public class XyoBleToTcpBridge : XyoRelayNode {
     
     public func bridge (tcpDevice : XyoTcpPeer, completion: @escaping (_: XyoBoundWitness?, _: XyoError?)->()) {
         if (canSend) {
+            self.blocksToBridge.sendLimit = self.tcpBridgeLimit
             let socket = XyoTcpSocket.create(peer: tcpDevice)
             let pipe = XyoTcpSocketPipe(socket: socket, initiationData: nil)
             
             self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogueStrict) { (boundWitness, error) in
-                
+                self.blocksToBridge.sendLimit = self.bleBridgeLimit
                 pipe.close()
                 self.enableBoundWitnessesSoft(enable: true)
                 
