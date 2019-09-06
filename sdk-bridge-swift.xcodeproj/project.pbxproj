@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1064F65457A9871401BF8AFF /* Pods_sdk_bridge_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9009077CC7E4C8ABF263EF67 /* Pods_sdk_bridge_swift.framework */; };
+		8C6F37C2221F6AE2001473B2 /* XyoBridgeProcedureCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F37C1221F6AE2001473B2 /* XyoBridgeProcedureCatalogue.swift */; };
+		8C85F6D0225AE86100EA04A1 /* XyoBridgeProcedureStrictCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85F6CF225AE86100EA04A1 /* XyoBridgeProcedureStrictCatalogue.swift */; };
 		8C924E07221376DD007FF765 /* sdk_bridge_swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C924E05221376DD007FF765 /* sdk_bridge_swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8C924E0E221377A7007FF765 /* XyoBleToTcpBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C924E0D221377A7007FF765 /* XyoBleToTcpBridge.swift */; };
+		F6AFD235092D5D2DBF917E69 /* Pods_sdk_bridge_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F299458BE7E21FBB02F5D9D2 /* Pods_sdk_bridge_swift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		36EA3209522300C3FE9C0121 /* Pods-sdk-bridge-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk-bridge-swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sdk-bridge-swift/Pods-sdk-bridge-swift.debug.xcconfig"; sourceTree = "<group>"; };
+		303AC5206BB489C5CD3D0FB7 /* Pods-sdk-bridge-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk-bridge-swift.debug.xcconfig"; path = "Target Support Files/Pods-sdk-bridge-swift/Pods-sdk-bridge-swift.debug.xcconfig"; sourceTree = "<group>"; };
+		8C6F37C1221F6AE2001473B2 /* XyoBridgeProcedureCatalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XyoBridgeProcedureCatalogue.swift; sourceTree = "<group>"; };
+		8C85F6CF225AE86100EA04A1 /* XyoBridgeProcedureStrictCatalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XyoBridgeProcedureStrictCatalogue.swift; sourceTree = "<group>"; };
 		8C924E02221376DD007FF765 /* sdk_bridge_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sdk_bridge_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C924E05221376DD007FF765 /* sdk_bridge_swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sdk_bridge_swift.h; sourceTree = "<group>"; };
 		8C924E06221376DD007FF765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C924E0D221377A7007FF765 /* XyoBleToTcpBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XyoBleToTcpBridge.swift; sourceTree = "<group>"; };
-		9009077CC7E4C8ABF263EF67 /* Pods_sdk_bridge_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sdk_bridge_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2B85E4E57D4EE5C07B51179 /* Pods-sdk-bridge-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk-bridge-swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-sdk-bridge-swift/Pods-sdk-bridge-swift.release.xcconfig"; sourceTree = "<group>"; };
+		C0BF4292F2AAF0781AA94745 /* Pods-sdk-bridge-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk-bridge-swift.release.xcconfig"; path = "Target Support Files/Pods-sdk-bridge-swift/Pods-sdk-bridge-swift.release.xcconfig"; sourceTree = "<group>"; };
+		F299458BE7E21FBB02F5D9D2 /* Pods_sdk_bridge_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sdk_bridge_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,28 +31,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1064F65457A9871401BF8AFF /* Pods_sdk_bridge_swift.framework in Frameworks */,
+				F6AFD235092D5D2DBF917E69 /* Pods_sdk_bridge_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E1451F9E94DB758E3B52613 /* Frameworks */ = {
+		022499BA0BB2A75CABFE8AFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9009077CC7E4C8ABF263EF67 /* Pods_sdk_bridge_swift.framework */,
+				F299458BE7E21FBB02F5D9D2 /* Pods_sdk_bridge_swift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		509DEB0FE63FA408811389AC /* Pods */ = {
+		3477E55970CF8B7645FF0AC8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				36EA3209522300C3FE9C0121 /* Pods-sdk-bridge-swift.debug.xcconfig */,
-				C2B85E4E57D4EE5C07B51179 /* Pods-sdk-bridge-swift.release.xcconfig */,
+				303AC5206BB489C5CD3D0FB7 /* Pods-sdk-bridge-swift.debug.xcconfig */,
+				C0BF4292F2AAF0781AA94745 /* Pods-sdk-bridge-swift.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		8C924DF8221376DD007FF765 = {
@@ -56,8 +60,8 @@
 			children = (
 				8C924E04221376DD007FF765 /* sdk-bridge-swift */,
 				8C924E03221376DD007FF765 /* Products */,
-				509DEB0FE63FA408811389AC /* Pods */,
-				0E1451F9E94DB758E3B52613 /* Frameworks */,
+				3477E55970CF8B7645FF0AC8 /* Pods */,
+				022499BA0BB2A75CABFE8AFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +79,8 @@
 				8C924E05221376DD007FF765 /* sdk_bridge_swift.h */,
 				8C924E06221376DD007FF765 /* Info.plist */,
 				8C924E0D221377A7007FF765 /* XyoBleToTcpBridge.swift */,
+				8C6F37C1221F6AE2001473B2 /* XyoBridgeProcedureCatalogue.swift */,
+				8C85F6CF225AE86100EA04A1 /* XyoBridgeProcedureStrictCatalogue.swift */,
 			);
 			path = "sdk-bridge-swift";
 			sourceTree = "<group>";
@@ -97,7 +103,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C924E0A221376DD007FF765 /* Build configuration list for PBXNativeTarget "sdk-bridge-swift" */;
 			buildPhases = (
-				59C62334756D118EB9489455 /* [CP] Check Pods Manifest.lock */,
+				F6EC91EFC3367BB00BABF525 /* [CP] Check Pods Manifest.lock */,
 				8C924DFD221376DD007FF765 /* Headers */,
 				8C924DFE221376DD007FF765 /* Sources */,
 				8C924DFF221376DD007FF765 /* Frameworks */,
@@ -155,7 +161,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		59C62334756D118EB9489455 /* [CP] Check Pods Manifest.lock */ = {
+		F6EC91EFC3367BB00BABF525 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -184,7 +190,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C85F6D0225AE86100EA04A1 /* XyoBridgeProcedureStrictCatalogue.swift in Sources */,
 				8C924E0E221377A7007FF765 /* XyoBleToTcpBridge.swift in Sources */,
+				8C6F37C2221F6AE2001473B2 /* XyoBridgeProcedureCatalogue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +323,7 @@
 		};
 		8C924E0B221376DD007FF765 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36EA3209522300C3FE9C0121 /* Pods-sdk-bridge-swift.debug.xcconfig */;
+			baseConfigurationReference = 303AC5206BB489C5CD3D0FB7 /* Pods-sdk-bridge-swift.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -343,7 +351,7 @@
 		};
 		8C924E0C221376DD007FF765 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2B85E4E57D4EE5C07B51179 /* Pods-sdk-bridge-swift.release.xcconfig */;
+			baseConfigurationReference = C0BF4292F2AAF0781AA94745 /* Pods-sdk-bridge-swift.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
