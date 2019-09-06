@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'sdk-bletcpbridge-swift'
-  s.version          = '3.0.0'
+  s.version          = '3.0.1'
   s.summary          = 'A short description of sdk-bletcpbridge-swift'
   s.swift_version    = '5.0'
 
@@ -18,9 +18,9 @@ TODO: Add long description of the pod here.
 
   s.homepage         = 'https://github.com/XYOracleNetwork/sdk-bletcpbridge-swift'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE.txt' }
-  s.author           = { 'Carter Harrison' => 'carterjharrison@gmail.com' }
-  s.source           = { :git => 'https://github.com/XYOracleNetwork/sdk-bletcpbridge-swift', :tag => s.version.to_s }
+  s.license          = { :type => 'LGPL3', :file => 'LICENSE' }
+  s.author           = { 'Carter Harrison' => 'carter@xyo.network' }
+  s.source           = { :git => 'https://github.com/XYOracleNetwork/sdk-bletcpbridge-swift.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '11.0'
