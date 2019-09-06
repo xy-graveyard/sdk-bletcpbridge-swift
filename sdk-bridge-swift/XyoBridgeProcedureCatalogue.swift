@@ -1,5 +1,5 @@
 //
-//  XyoBridgeProcedureCatalogue.swift
+//  XyoBridgeProcedureCatalog.swift
 //  sdk-bridge-swift
 //
 //  Created by Carter Harrison on 2/21/19.
@@ -9,15 +9,15 @@
 import Foundation
 import sdk_core_swift
 
-public class XyoBridgeProcedureCatalogue : XyoFlagProcedureCatalogue {
+public class XyoBridgeProcedureCatalog : XyoFlagProcedureCatalog {
     private static let allSupportedFunctions = UInt32(
-        XyoProcedureCatalogueFlags.BOUND_WITNESS |
-        XyoProcedureCatalogueFlags.GIVE_ORIGIN_CHAIN |
-        XyoProcedureCatalogueFlags.TAKE_ORIGIN_CHAIN)
+        XyoProcedureCatalogFlags.BOUND_WITNESS |
+        XyoProcedureCatalogFlags.GIVE_ORIGIN_CHAIN |
+        XyoProcedureCatalogFlags.TAKE_ORIGIN_CHAIN)
     
     public init () {
-        super.init(forOther: XyoBridgeProcedureCatalogue.allSupportedFunctions,
-                   withOther: XyoBridgeProcedureCatalogue.allSupportedFunctions)
+        super.init(forOther: XyoBridgeProcedureCatalog.allSupportedFunctions,
+                   withOther: XyoBridgeProcedureCatalog.allSupportedFunctions)
     }
     
     override public func choose(catalogue: [UInt8]) -> [UInt8] {
@@ -25,26 +25,26 @@ public class XyoBridgeProcedureCatalogue : XyoFlagProcedureCatalogue {
             return []
         }
         
-        if (intrestedFlags & UInt8(XyoProcedureCatalogueFlags.TAKE_ORIGIN_CHAIN) != 0 && canDo(bytes: [UInt8(XyoProcedureCatalogueFlags.TAKE_ORIGIN_CHAIN)])) {
-            return [UInt8(XyoProcedureCatalogueFlags.GIVE_ORIGIN_CHAIN)]
+        if (intrestedFlags & UInt8(XyoProcedureCatalogFlags.TAKE_ORIGIN_CHAIN) != 0 && canDo(bytes: [UInt8(XyoProcedureCatalogFlags.TAKE_ORIGIN_CHAIN)])) {
+            return [UInt8(XyoProcedureCatalogFlags.GIVE_ORIGIN_CHAIN)]
         }
         
-        if (intrestedFlags & UInt8(XyoProcedureCatalogueFlags.GIVE_ORIGIN_CHAIN) != 0 && canDo(bytes: [UInt8(XyoProcedureCatalogueFlags.GIVE_ORIGIN_CHAIN)])) {
-            return [UInt8(XyoProcedureCatalogueFlags.TAKE_ORIGIN_CHAIN)]
+        if (intrestedFlags & UInt8(XyoProcedureCatalogFlags.GIVE_ORIGIN_CHAIN) != 0 && canDo(bytes: [UInt8(XyoProcedureCatalogFlags.GIVE_ORIGIN_CHAIN)])) {
+            return [UInt8(XyoProcedureCatalogFlags.TAKE_ORIGIN_CHAIN)]
         }
         
-        return [UInt8(XyoProcedureCatalogueFlags.BOUND_WITNESS)]
+        return [UInt8(XyoProcedureCatalogFlags.BOUND_WITNESS)]
     }
 }
 
-public class XyoBridgeProcedureStrictCatalogue : XyoFlagProcedureCatalogue {
+public class XyoBridgeProcedureStrictCatalog : XyoFlagProcedureCatalog {
     private static let allSupportedFunctions = UInt32(
-        XyoProcedureCatalogueFlags.GIVE_ORIGIN_CHAIN |
-            XyoProcedureCatalogueFlags.TAKE_ORIGIN_CHAIN)
+        XyoProcedureCatalogFlags.GIVE_ORIGIN_CHAIN |
+            XyoProcedureCatalogFlags.TAKE_ORIGIN_CHAIN)
 
     public init () {
-        super.init(forOther: XyoBridgeProcedureStrictCatalogue.allSupportedFunctions,
-                   withOther: XyoBridgeProcedureStrictCatalogue.allSupportedFunctions)
+        super.init(forOther: XyoBridgeProcedureStrictCatalog.allSupportedFunctions,
+                   withOther: XyoBridgeProcedureStrictCatalog.allSupportedFunctions)
     }
 
     override public func choose(catalogue: [UInt8]) -> [UInt8] {
@@ -52,12 +52,12 @@ public class XyoBridgeProcedureStrictCatalogue : XyoFlagProcedureCatalogue {
             return []
         }
 
-        if (intrestedFlags & UInt8(XyoProcedureCatalogueFlags.TAKE_ORIGIN_CHAIN) != 0 && canDo(bytes: [UInt8(XyoProcedureCatalogueFlags.TAKE_ORIGIN_CHAIN)])) {
-            return [UInt8(XyoProcedureCatalogueFlags.GIVE_ORIGIN_CHAIN)]
+        if (intrestedFlags & UInt8(XyoProcedureCatalogFlags.TAKE_ORIGIN_CHAIN) != 0 && canDo(bytes: [UInt8(XyoProcedureCatalogFlags.TAKE_ORIGIN_CHAIN)])) {
+            return [UInt8(XyoProcedureCatalogFlags.GIVE_ORIGIN_CHAIN)]
         }
 
-        if (intrestedFlags & UInt8(XyoProcedureCatalogueFlags.GIVE_ORIGIN_CHAIN) != 0 && canDo(bytes: [UInt8(XyoProcedureCatalogueFlags.GIVE_ORIGIN_CHAIN)])) {
-            return [UInt8(XyoProcedureCatalogueFlags.TAKE_ORIGIN_CHAIN)]
+        if (intrestedFlags & UInt8(XyoProcedureCatalogFlags.GIVE_ORIGIN_CHAIN) != 0 && canDo(bytes: [UInt8(XyoProcedureCatalogFlags.GIVE_ORIGIN_CHAIN)])) {
+            return [UInt8(XyoProcedureCatalogFlags.TAKE_ORIGIN_CHAIN)]
         }
 
         return []

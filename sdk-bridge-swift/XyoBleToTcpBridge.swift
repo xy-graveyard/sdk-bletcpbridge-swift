@@ -17,8 +17,8 @@ import Promises
 public class XyoBleToTcpBridge : XyoRelayNode {
     public var secondsToWaitInBetweenConnections = 0
     private var lastConnectTime : Date? = nil
-    private var catalogue = XyoBridgeProcedureCatalogue()
-    private var catalogueStrict = XyoBridgeProcedureStrictCatalogue()
+    private var catalog = XyoBridgeProcedureCatalog()
+    private var catalogStrict = XyoBridgeProcedureStrictCatalog()
     private var lastBleDeviceMinor : UInt16?
     private var canCollect : Bool = true
     private var canSend : Bool = true
@@ -60,7 +60,7 @@ public class XyoBleToTcpBridge : XyoRelayNode {
             let socket = XyoTcpSocket.create(peer: tcpDevice)
             let pipe = XyoTcpSocketPipe(socket: socket, initiationData: nil)
             
-            self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogueStrict) { (boundWitness, error) in
+            self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogStrict) { (boundWitness, error) in
                 self.blocksToBridge.sendLimit = self.bleBridgeLimit
                 pipe.close()
                 self.enableBoundWitnessesSoft(enable: true)
@@ -145,7 +145,7 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
                 
                 let awaiter = Promise<Any?>.pending()
                 
-                self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue, completion: { (boundWitness, error) in
+                self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalog, completion: { (boundWitness, error) in
                     self.enableBoundWitnessesSoft(enable: true)
                     awaiter.fulfill(nil)
                     self.lastConnectTime = Date()
@@ -180,7 +180,7 @@ extension XyoBleToTcpBridge : XyoPipeCharacteristicLisitner {
             self.enableBoundWitnessesSoft(enable: false)
             
             DispatchQueue.global().async {
-                self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalogue, completion: { (boundWitness, error) in
+                self.boundWitness(handler: XyoNetworkHandler(pipe: pipe), procedureCatalogue: self.catalog, completion: { (boundWitness, error) in
                     self.enableBoundWitnessesSoft(enable: true)
                     pipe.close()
                     

@@ -8,9 +8,9 @@
 
 Pod::Spec.new do |s|
   s.name             = 'sdk-bletcpbridge-swift'
-  s.version          = '0.1.2-beta.0'
+  s.version          = '3.0.0'
   s.summary          = 'A short description of sdk-bletcpbridge-swift'
-
+  s.swift_version    = '5.0'
 
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
@@ -29,10 +29,10 @@ TODO: Add long description of the pod here.
 
   s.dependency 'PromisesSwift', '~> 1.2.4'
 
-  s.dependency 'sdk-core-swift', '~> 0.1.4-beta.6'
-  s.dependency 'sdk-objectmodel-swift',  '~> 0.1.2-beta.3'
-  s.dependency 'XyBleSdk',  '~> 0.0.1'
-  s.dependency 'sdk-xyobleinterface-swift',  '~> 0.1.4-beta.4'
+  s.dependency 'sdk-core-swift', '~> 3.0.1'
+  s.dependency 'sdk-objectmodel-swift',  '~> 3.0'
+  s.dependency 'XyBleSdk',  '~> 3.0'
+  s.dependency 'sdk-xyobleinterface-swift',  '~> 3.0'
 
 
 end

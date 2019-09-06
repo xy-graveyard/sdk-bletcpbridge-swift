@@ -1,25 +1,25 @@
 PODS:
-  - PromisesObjC (1.2.7)
-  - PromisesSwift (1.2.7):
-    - PromisesObjC (= 1.2.7)
-  - sdk-core-swift (0.1.6-beta.2):
-    - sdk-objectmodel-swift (~> 0.1.2-beta.3)
+  - PromisesObjC (1.2.8)
+  - PromisesSwift (1.2.8):
+    - PromisesObjC (= 1.2.8)
+  - sdk-core-swift (3.0.1):
+    - sdk-objectmodel-swift (~> 3.0)
     - secp256k1.swift
-  - sdk-objectmodel-swift (0.1.3-beta.0)
-  - sdk-xyobleinterface-swift (0.1.4-beta.4):
+  - sdk-objectmodel-swift (3.0.0)
+  - sdk-xyobleinterface-swift (3.0.2):
     - PromisesSwift (~> 1.2.4)
-    - sdk-core-swift (~> 0.1.5-beta.2)
-    - sdk-objectmodel-swift (~> 0.1.2-beta.3)
-    - XyBleSdk (~> 0.0.1)
+    - sdk-core-swift (~> 3.0.1)
+    - sdk-objectmodel-swift (~> 3.0)
+    - XyBleSdk (~> 3.0)
   - secp256k1.swift (0.1.4)
-  - XyBleSdk (0.0.1):
-    - PromisesSwift (~> 1.2.4)
+  - XyBleSdk (3.0.0):
+    - PromisesSwift
 
 DEPENDENCIES:
-  - sdk-core-swift (~> 0.1.4-beta.6)
-  - sdk-objectmodel-swift (~> 0.1.2-beta.3)
-  - sdk-xyobleinterface-swift (~> 0.1.4-beta.4)
-  - XyBleSdk (~> 0.0.1)
+  - sdk-core-swift (~> 3.0.1)
+  - sdk-objectmodel-swift (~> 3.0)
+  - sdk-xyobleinterface-swift (~> 3.0)
+  - XyBleSdk (~> 3.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -32,14 +32,14 @@ SPEC REPOS:
     - XyBleSdk
 
 SPEC CHECKSUMS:
-  PromisesObjC: 7b28ddd1e78cce8f80f1ada927d2217663a9c672
-  PromisesSwift: b27f410f9ea693753cfd4cfd8ac1c60a471f137b
-  sdk-core-swift: 58c5b7b6531c7907753527b7c34dfc715c74d3cd
-  sdk-objectmodel-swift: 104ba91becdd7a29bccedbabd3ba93e39237e510
-  sdk-xyobleinterface-swift: 675386747cfc9690ac8edc41fd2eb5a875a5985c
+  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  PromisesSwift: 37bad6f4daddb02f7c9c531efe91e8b21c13ee2f
+  sdk-core-swift: 6b089045fe8483388bd3c82d2d1375d796c29745
+  sdk-objectmodel-swift: 4f80ae7001734127c850d47ec453727a6c26867a
+  sdk-xyobleinterface-swift: 63d311e26581b2a8aabaf33da0bcfe09ab58d191
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
-  XyBleSdk: 412c59d8b05e92a4c2341bcf11909861a12ddbba
+  XyBleSdk: a9c26c8474ea4118cd111158af570ccafa546713
 
-PODFILE CHECKSUM: f3f5e72a50c3dd94c85ff83bf092b92ce301a2fb
+PODFILE CHECKSUM: aff6239153c8bfb040fd99a80ad12d34c6684881
 
-COCOAPODS: 1.7.0.beta.2
+COCOAPODS: 1.7.5
