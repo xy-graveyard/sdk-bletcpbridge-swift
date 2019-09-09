@@ -99,7 +99,7 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
     // unused scanner callbacks
     public func smartScan(status: XYSmartScanStatus) {}
     public func smartScan(location: XYLocationCoordinate2D) {}
-    public func smartScan(detected device: XYBluetoothDevice, signalStrength: Int, family: XYDeviceFamily) {}
+    public func smartScan(detected device: XYBluetoothDevice, rssi: Int, family: XYDeviceFamily) {}
     public func smartScan(entered device: XYBluetoothDevice) {}
     public func smartScan(exiting device: XYBluetoothDevice) {}
     public func smartScan(exited device: XYBluetoothDevice) {}
@@ -156,7 +156,7 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
                 _ = try await(awaiter)
                 }.always {
                     self.enableBoundWitnessesSoft(enable: true)
-                    XYCentral.instance.disconnect(from: bleDevice)
+                    bleDevice.disconnect()
             }
         }
     }
