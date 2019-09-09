@@ -57,8 +57,8 @@ class ViewController: UIViewController, XyoNodeListener {
     private func setBridge () {
         if (bridge == nil) {
             let storage = XyoInMemoryStorage()
-            let blocks = XyoStrageProviderOriginBlockRepository(storageProvider: storage, hasher: XyoSha256())
-            let state = XyoStorageOriginChainStateRepository(storage: storage)
+            let blocks = XyoStorageProviderOriginBlockRepository(storageProvider: storage, hasher: XyoSha256())
+            let state = XyoStorageOriginStateRepository(storage: storage)
             let configuration = XyoRepositoryConfiguration(originState: state, originBlock: blocks)
             let queue = XyoStorageBridgeQueueRepository(storage: storage)
             
