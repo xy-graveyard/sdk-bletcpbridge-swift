@@ -174,7 +174,7 @@ extension XyoBleToTcpBridge : XYSmartScanDelegate {
 
 
 
-extension XyoBleToTcpBridge : XyoPipeCharacteristicLisitner {
+extension XyoBleToTcpBridge : XyoPipeCharacteristicListener {
     public func onPipe(pipe: XyoNetworkPipe) {
         if (canServe) {
             self.enableBoundWitnessesSoft(enable: false)
