@@ -1,0 +1,38 @@
+name: Release 
+
+on: 
+  push:
+    branches:
+      - 'master'
+
+jobs: 
+  build: 
+    runs-on: macOS-latest
+    strategy: 
+      matrix:
+        destination: ['platform=iOS Simulator,iOS=13.1,name=iPhone11']
+
+  steps:
+    - uses: actions/checkout@v2
+    - name: pre build
+      run: |
+            gem install cocoapods --pr
+            pod repo update
+    - name: slather install
+      run: gem install slather
+    - name: set up test reporter
+      run: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod 777 ./cc-test-reporter
+    - name: build
+      env: 
+        destination: ${{ matrix.destination }}
+      run: |
+            pod install
+            xcodebuild -workspace sdk-bletcpbridge.xcworkspace -scheme sdk-bletcpbridge-swift -destination ${{ destination }} build test | xcpretty
+    - name: after build
+      run: ./cc-test-reporter after-build
+    - name: publish to cocoapod register
+      env: 
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.TRUNK_TOKEN }}
+      run: pod trunk push sdk-bletcpbridge-swift.podspec
