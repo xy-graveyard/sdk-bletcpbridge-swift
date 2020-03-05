@@ -4,7 +4,8 @@
 
 # sdk-bletcpbridge-swift
 
-[![](https://img.shields.io/gitter/room/XYOracleNetwork/Stardust.svg)](https://gitter.im/XYOracleNetwork/Dev) [![Maintainability](https://api.codeclimate.com/v1/badges/c1fcc315b2137be32216/maintainability)](https://codeclimate.com/github/XYOracleNetwork/sdk-bletcpbridge-swift/maintainability) [![](https://img.shields.io/cocoapods/v/sdk-bletcpbridge-swift.svg?style=flat)](https://cocoapods.org/pods/sdk-bletcpbridge-swift)
+[![](https://img.shields.io/cocoapods/v/sdk-bletcpbridge-swift.svg?style=flat)](https://cocoapods.org/pods/sdk-bletcpbridge-swift) [![BCH compliance](https://bettercodehub.com/edge/badge/XYOracleNetwork/sdk-bletcpbridge-swift?branch=master)](https://bettercodehub.com/) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/56668192792848979dbf23908401be0f)](https://www.codacy.com/gh/XYOracleNetwork/sdk-bletcpbridge-swift?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=XYOracleNetwork/sdk-bletcpbridge-swift&amp;utm_campaign=Badge_Grade) [![Maintainability](https://api.codeclimate.com/v1/badges/c1fcc315b2137be32216/maintainability)](https://codeclimate.com/github/XYOracleNetwork/sdk-bletcpbridge-swift/maintainability) [![Known Vulnerabilities](https://snyk.io/test/github/XYOracleNetwork/sdk-bletcpbridge-swift/badge.svg?targetFile=Podfile)](https://snyk.io/test/github/XYOracleNetwork/sdk-bletcpbridge-swift?targetFile=Podfile)
+
 
 ## Table of Contents
 
